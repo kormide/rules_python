@@ -9,7 +9,26 @@ PREFIX="rules_python-${TAG}"
 SHA=$(git archive --format=tar --prefix=${PREFIX}/ ${TAG} | gzip | shasum -a 256 | awk '{print $1}')
 
 cat << EOF
-WORKSPACE setup:
+Using Bzlmod with Bazel 6
+
+Add to your \`MODULE.bazel\` file:
+
+\`\`\`starlark
+bazel_dep(name = "rules_python", version = "${TAG}")
+
+pip = use_extension("@rules_python//python:extensions.bzl", "pip")
+
+pip.parse(
+    name = "pip",
+    requirements_lock = "//:requirements_lock.txt",
+)
+
+use_repo(pip, "pip")
+\`\`\`
+
+Using WORKSPACE:
+
+Paste this snippet into your \`WORKSPACE\` file:
 
 \`\`\`starlark
 load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")

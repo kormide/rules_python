@@ -1,0 +1,20 @@
+{
+  "homepage": "https://github.com/bazelbuild/rules_python",
+  "maintainers": [
+    {
+      "name": "Richard Levasseur",
+      "email": "rlevasseur@google.com",
+      "github": "rickeylev"
+    },
+    {
+      "name": "Greg Roodt",
+      "email": "groodt@gmail.com",
+      "github": "groodt"
+    }
+  ],
+  "repository": [
+    "github:bazelbuild/rules_python"
+  ],
+  "versions": [],
+  "yanked_versions": {}
+}
