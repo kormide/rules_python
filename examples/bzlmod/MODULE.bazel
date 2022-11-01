@@ -10,3 +10,13 @@ local_path_override(
     module_name = "rules_python",
     path = "../..",
 )
+
+pip = use_extension("@rules_python//python:extensions.bzl", "pip")
+
+pip.parse(
+    name = "pip",
+    requirements_lock = "//:requirements_lock.txt",
+)
+
+use_repo(pip, "pip")
+
